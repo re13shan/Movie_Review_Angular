@@ -1,0 +1,58 @@
+:host {
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .title {
+        padding: 75px;
+        font-size: 400%;
+        // color: #370c9b;
+        display: flex;
+        justify-content: center;
+    }
+
+    .form {
+        position: relative;
+        font-size: 300%;
+        top: 50px;
+        margin: 0 auto 70px;
+        color: ghostwhite;
+        text-shadow: 0 0 3px #000000, 0 0 5px #030303;
+        //padding-top: 10px;
+        padding: 20px;
+        text-align: center;
+
+    }
+
+    .login {
+        font-size: 300%;
+        padding: 15px;
+        color: #f7f7f7;
+        text-shadow: 0 0 3px #000000, 0 0 5px #030303;
+        display: flex;
+        justify-content: center;
+    }
+
+
+
+    .input {
+        font-size: 130%;
+        color: #5e0903;
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+
+
+.example-form {
+    min-width: 50px;
+    max-width: 300px;
+    width: 50%;
+}
+
+.example-full-width {
+    width: 100%;
+}

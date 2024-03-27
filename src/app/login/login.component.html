@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body background="/assets/img/bg3.avif">
+    <div>
+        <div>
+            <div class="form">
+                <p>
+                    <b>Welcome To Totten Romato</b>
+                </p>
+                <br>
+            </div>
+            <div class="login">
+                <P>
+                    <b> Please Login</b>
+                </P>
+            </div>
+            <form>
+                <div class="input">
+                    <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                            <mat-label><label for="pword">Email</label></mat-label>
+                            <input type="email" matInput [formControl]="emailFormControl  "
+                                placeholder="Ex. pat@example.com">
+                            @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+                            <mat-error><b>Please enter a valid email address</b></mat-error>
+                            }
+                            @if (emailFormControl.hasError('required')) {
+                            <mat-error>Email is <strong>required</strong></mat-error>
+                            }
+                        </mat-form-field>
+                    </form>
+                </div>
+                <div class="input">
+                    <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                            <mat-label><label for="pword">Password</label></mat-label>
+                            <input matInput type="text">
+                        </mat-form-field>
+                    </form>
+                </div>
+            </form>
+            <br>
+            <div class="input">
+                <!-- <button mat-stroked-button type="submit">Log In</button> -->
+                <a mat-raised-button mat-button color="primary" style="margin-right:50px" routerLink="home">Submit</a>
+                <a mat-raised-button mat-button color="primary">Trouble Logging in?</a>
+            </div>
+            <div>
+                <br>
+                <br>
+            </div>
+            <P class="below">
+                <b>Don't Have an account?&ensp;<a mat-raised-button mat-button color="primary"
+                        routerLink="signup">SignUp</a>&ensp;here</b>
+            </P>
+        </div>
+    </div>
+</body>
+
+</html>

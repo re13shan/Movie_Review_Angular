@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="movie-container">
+    <div class="top">
+        <div class="left">
+            <div class="name">{{ movie?.name }}</div>
+            <div class="cover">
+                <img [src]="movie?.cover" alt="" />
+            </div>
+        </div>
+        <div class="right">
+            <div class="title"><b>Write a review</b></div>
+            <div class="rating-form">
+                <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Name</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Write your review here</mat-label>
+                        <textarea matInput placeholder="how's the movie..."></textarea>
+                    </mat-form-field>
+
+                </div>
+                <div class="btn-container">
+                    <a mat-raised-button mat-button color="primary" style="margin-right:50px"
+                        routerLink="home">Submit</a>
+                </div>
+            </div>
+        </div>
+    </div>
