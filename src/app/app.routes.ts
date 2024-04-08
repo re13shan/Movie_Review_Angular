@@ -19,7 +19,7 @@ export const routes: Routes = [
         component: SignupComponent
     },
     {
-        path: "movies/:id",
+        path: "movies/:_id",
         component: MoviesComponent
     }
 ];

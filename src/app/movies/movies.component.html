@@ -10,22 +10,38 @@
         <div class="right">
             <div class="title"><b>Write a review</b></div>
             <div class="rating-form">
-                <div class="form-group">
-                    <mat-form-field class="example-full-width">
-                        <mat-label>Name</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </div>
-                <div class="form-group">
-                    <mat-form-field class="example-full-width">
-                        <mat-label>Write your review here</mat-label>
-                        <textarea matInput placeholder="how's the movie..."></textarea>
-                    </mat-form-field>
-
-                </div>
+                <form [formGroup]="movieForm">
+                    <div class="form-group">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Name</mat-label>
+                            <input matInput formControlName="name">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Write your review here</mat-label>
+                            <textarea matInput placeholder="how's the movie..." formControlName="review"></textarea>
+                        </mat-form-field>
+                    </div>
+                </form>
                 <div class="btn-container">
-                    <a mat-raised-button mat-button color="primary" style="margin-right:50px"
-                        routerLink="home">Submit</a>
+                    <button mat-raised-button mat-button color="primary" style="margin-right:50px"
+                        (click)="saveReview()">Submit</button>
+                </div>
+            </div>
+            <div class="cover">
+                <br>
+                <br>
+                <div class="title"><b>Reviews</b></div>
+                <div class="movie-grid" *ngFor="let rev of movie?.reviews">
+                    <div class="movie-card">
+                        <b> Id: </b>{{rev._id}}
+                        <br>
+                        <b> Reviews: </b>{{rev.review}}
+                    </div>
+                    <div class="movie-iteam">
+
+                    </div>
                 </div>
             </div>
         </div>
