@@ -55,13 +55,26 @@ export class MoviesComponent {
       }
     });
   }
-  saveReview() {
-    var formValue = this.movieForm.value;
+  // saveReview() {
+  //   var formValue = this.movieForm.value;
 
-    console.log(formValue.review);
-    this.movieService
-      .updateReview(this.movie._id || '', formValue.review)
-      .subscribe((res) => (this.movie = res));
+  //   console.log(formValue.review);
+  //   this.movieService
+  //     .updateReview(this.movie._id || '', formValue.review)
+  //     .subscribe((res) => (this.movie = res));
+  // }
+  saveReview() {
+    const movieId = this.movie._id;
+    const newReview = this.movieForm.value.review;
+
+    this.movieService.updateReview(movieId, newReview)
+      .subscribe((res) => {
+        this.movie = res; // Assuming the response contains updated movie data
+        console.log('Review updated successfully:', res);
+      }, (error) => {
+        console.error('Failed to update review:', error);
+      });
+    window.location.reload();
   }
 
 }

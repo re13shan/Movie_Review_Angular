@@ -1,18 +1,22 @@
 <app-header></app-header>
-<div>
-    <div class="top">
-        <h4><b>Movies</b></h4>
-    </div>
-    <div>
-        <div class="movie-item" *ngFor="let movie of popularMovies">
-            <div class="cover" (click)="goToMovie(movie._id)">
-                <img [src]="movie.cover" alt="" />
+<div class="">
+    <div class="">
+        <div fxLayout="row wrap">
+            <div class="top">
+                <h4><b>Movies</b></h4>
             </div>
-            <div>
-                <div class="name" (click)="goToMovie(movie._id)">{{ movie.name }}</div>
-                <div (click)="goToMovie(movie._id)">Rating: {{ movie.rating }}</div>
+            <div class="movie-grid">
+                <div class="movie-item" *ngFor="let movie of popularMovies">
+                    <div class="cover" (click)="goToMovie(movie._id)">
+                        <img [src]="movie.cover" alt="" />
+                    </div>
+                    <div>
+                        <div class="name" (click)="goToMovie(movie._id)">{{ movie.name }}</div>
+                        <div (click)="goToMovie(movie._id)">Rating: {{ movie.rating }}</div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
-
 </div>

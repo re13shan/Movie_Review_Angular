@@ -15,10 +15,14 @@ export class LoadService {
   }
 
 
-  updateReview(id: string | number, updatedReview: string): Observable<any> {
-    const url = `${this.baseUrl}/${id}`;
-    const updatedMovie = { reviews: [updatedReview] };
-    return this.httpClient.put(url, updatedMovie);
+  // updateReview(id: string | number, updatedReview: string): Observable<any> {
+  //   const url = `${this.baseUrl}/${id}`;
+  //   const updatedMovie = { reviews: [updatedReview] };
+  //   return this.httpClient.put(url, updatedMovie);
+  // }
+  updateReview(movieid: string | number, newReview: string): Observable<any> {
+    const url = `http://localhost:3000/api/movies//update/${movieid}`;
+    return this.httpClient.put(url, { review: newReview });
   }
 
 }
