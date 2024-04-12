@@ -12,7 +12,7 @@
                     </div>
                     <div>
                         <div class="name" (click)="goToMovie(movie._id)">{{ movie.name }}</div>
-                        <div (click)="goToMovie(movie._id)">Rating: {{ movie.rating }}</div>
+                        <div (click)="goToMovie(movie._id)">Rating: {{ movie.rating.toFixed(2) }}%</div>
                     </div>
                 </div>
             </div>

@@ -10,12 +10,15 @@ import { LoadService } from '../services/load.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatPseudoCheckbox } from '@angular/material/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @Component({
   selector: 'app-movies',
   standalone: true,
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.scss',
-  imports: [HeaderComponent, MatFormField, MatLabel, MatButtonModule, MatInputModule, RouterLink, FormsModule, ReactiveFormsModule, MatSnackBarModule, CommonModule, MatIconModule]
+  imports: [HeaderComponent, MatFormField, MatLabel, MatButtonModule, MatInputModule, RouterLink, FormsModule, ReactiveFormsModule, MatSnackBarModule, CommonModule, MatIconModule, MatButtonModule, MatCardModule, MatCheckboxModule]
 })
 export class MoviesComponent {
 
@@ -32,14 +35,13 @@ export class MoviesComponent {
     name: [''],
     review: [''],
   });
-
-
-  // review = '';
-
-
+  likings: FormGroup = this.formbuild.group({
+    like: false,
+    dislike: false,
+  });
 
   ngOnInit(): void {
-    //this.type = this.route.snapshot.params['type'];
+
     this._id = this.route.snapshot.params['_id'];
 
     this.getMovie();
@@ -67,8 +69,15 @@ export class MoviesComponent {
     const movieId = this.movie._id;
     const newReview = this.movieForm.value.review;
     const userName = this.movieForm.value.name;
-
-    this.movieService.updateReview(movieId, newReview, userName)
+    const like = this.likings.value.like;
+    const disLike = this.likings.value.disLike;
+    // if (like) {
+    //   console.log("liked");
+    // }
+    // else {
+    //   console.log("disliked");
+    // }
+    this.movieService.updateReview(movieId, newReview, userName, like)
       .subscribe((res) => {
         this.movie = res; // Assuming the response contains updated movie data
         console.log('Review updated successfully:', res);

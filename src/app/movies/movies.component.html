@@ -8,7 +8,7 @@
                 <img [src]="movie?.cover" alt="" />
             </div>
             <div class="name">{{ movie?.name }}</div>
-            <div class="rating">Rating: {{ movie?.rating }}</div>
+            <div class="rating">{{ movie?.rating.toFixed(2) }}% people recommend</div>
         </div>
         <div class="right">
             <div class="title"><b>Write a review</b></div>
@@ -28,20 +28,11 @@
                     </div>
                 </form>
                 <div class="btn-container">
-                    <link rel="stylesheet"
-                        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-                    <button mat-raised-button class="material-symbols-outlined" mat-button color="primary">
-                        thumb_up
-                    </button>
-                    &nbsp;&#160;
-                    &nbsp;&#160;
-                    <link rel="stylesheet"
-                        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-                    <button mat-raised-button class="material-symbols-outlined" mat-button color="primary">
-                        thumb_down
-                    </button>
-                    <br>
-                    <br>
+                    <section [formGroup]="likings">
+                        <h4><b>Will you recommend the movie?</b></h4>
+                        <p><mat-checkbox formControlName="like">Yes</mat-checkbox></p>
+                        <p><mat-checkbox formControlName="dislike">No</mat-checkbox></p>
+                    </section>
                     <br>
                     <button mat-raised-button mat-button color="primary" style="margin-right:50px"
                         (click)="saveReview()">Submit</button>
