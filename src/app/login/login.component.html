@@ -21,47 +21,43 @@
                     <b> Please Login</b>
                 </P>
             </div>
-            <form>
-                <div class="input">
-                    <form class="example-form">
-                        <mat-form-field class="example-full-width">
-                            <mat-label><label for="pword">Email</label></mat-label>
-                            <input type="email" matInput [formControl]="emailFormControl  "
-                                placeholder="Ex. pat@example.com">
-                            @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
-                            <mat-error><b>Please enter a valid email address</b></mat-error>
-                            }
-                            @if (emailFormControl.hasError('required')) {
-                            <mat-error>Email is <strong>required</strong></mat-error>
-                            }
-                        </mat-form-field>
-                    </form>
-                </div>
-                <div class="input">
-                    <form class="example-form">
-                        <mat-form-field class="example-full-width">
-                            <mat-label><label for="pword">Password</label></mat-label>
-                            <input matInput type="text">
-                        </mat-form-field>
-                    </form>
-                </div>
-            </form>
-            <br>
-            <div class="input">
-                <!-- <button mat-stroked-button type="submit">Log In</button> -->
-                <a mat-raised-button mat-button color="primary" style="margin-right:50px" routerLink="home">Submit</a>
-                <a mat-raised-button mat-button color="primary">Trouble Logging in?</a>
+            <div class="below">
+                <form [formGroup]="loginForm">
+                    <mat-form-field class="example-full-width">
+                        <mat-label><label for="pword">Email</label></mat-label>
+                        <!-- <input type="email" matInput [formControl]="emailFormControl  "
+                            placeholder="Ex. pat@example.com" formControlName="userEmail">
+                        @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+                        <mat-error><b>Please enter a valid email address</b></mat-error>
+                        }
+                        @if (emailFormControl.hasError('required')) {
+                        <mat-error>Email is <strong>required</strong></mat-error>
+                        } -->
+                        <input matInput type="text" formControlName="email">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label><label for="pword">Password</label></mat-label>
+                        <input matInput type="text" formControlName="password">
+                    </mat-form-field>
+                </form>
             </div>
-            <div>
-                <br>
-                <br>
-            </div>
-            <P class="below">
-                <b>Don't Have an account?&ensp;<a mat-raised-button mat-button color="primary"
-                        routerLink="signup">SignUp</a>&ensp;here</b>
-            </P>
         </div>
+        <br>
+        <div class="input">
+            <!-- <button mat-stroked-button type="submit">Log In</button> -->
+            <a mat-raised-button mat-button color="primary" style="margin-right:50px" (click)="login()">Submit</a>
+        </div>
+        <div>
+            <br>
+            <br>
+        </div>
+        <P class="below2">
+            <b>Don't Have an account?&ensp;<a mat-raised-button mat-button color="primary"
+                    routerLink="signup">SignUp</a>&ensp;here</b>
+        </P>
     </div>
+
 </body>
 
 </html>

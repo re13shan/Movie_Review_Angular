@@ -9,13 +9,13 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, NgModel, ReactiveForm
 import { LoadService } from '../services/load.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
-
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 @Component({
   selector: 'app-movies',
   standalone: true,
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.scss',
-  imports: [HeaderComponent, MatFormField, MatLabel, MatButtonModule, MatInputModule, RouterLink, FormsModule, ReactiveFormsModule, MatSnackBarModule, CommonModule]
+  imports: [HeaderComponent, MatFormField, MatLabel, MatButtonModule, MatInputModule, RouterLink, FormsModule, ReactiveFormsModule, MatSnackBarModule, CommonModule, MatIconModule]
 })
 export class MoviesComponent {
 
@@ -66,8 +66,9 @@ export class MoviesComponent {
   saveReview() {
     const movieId = this.movie._id;
     const newReview = this.movieForm.value.review;
+    const userName = this.movieForm.value.name;
 
-    this.movieService.updateReview(movieId, newReview)
+    this.movieService.updateReview(movieId, newReview, userName)
       .subscribe((res) => {
         this.movie = res; // Assuming the response contains updated movie data
         console.log('Review updated successfully:', res);

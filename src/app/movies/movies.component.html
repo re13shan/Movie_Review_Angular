@@ -28,17 +28,36 @@
                     </div>
                 </form>
                 <div class="btn-container">
+                    <link rel="stylesheet"
+                        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+                    <button mat-raised-button class="material-symbols-outlined" mat-button color="primary">
+                        thumb_up
+                    </button>
+                    &nbsp;&#160;
+                    &nbsp;&#160;
+                    <link rel="stylesheet"
+                        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+                    <button mat-raised-button class="material-symbols-outlined" mat-button color="primary">
+                        thumb_down
+                    </button>
+                    <br>
+                    <br>
+                    <br>
                     <button mat-raised-button mat-button color="primary" style="margin-right:50px"
                         (click)="saveReview()">Submit</button>
+
+
                 </div>
             </div>
+            <br>
+
             <div class="cover">
                 <br>
                 <br>
                 <div class="title"><b>Reviews</b></div>
                 <div class="movie-grid" *ngFor="let rev of movie?.reviews">
                     <div class="movie-card">
-                        <b> Id: </b>{{rev._id}}
+                        <b> Name: </b>{{rev.userDisplayName}}
                         <br>
                         <b> Reviews: </b>{{rev.review}}
                     </div>
