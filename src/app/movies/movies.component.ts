@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, NgModule, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HeaderComponent } from "../header/header.component";
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,8 +21,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   imports: [HeaderComponent, MatFormField, MatLabel, MatButtonModule, MatInputModule, RouterLink, FormsModule, ReactiveFormsModule, MatSnackBarModule, CommonModule, MatIconModule, MatButtonModule, MatCardModule, MatCheckboxModule]
 })
 export class MoviesComponent {
-
-  type = '';
+  names: any;
+  names2: any;
   _id = '';
   url = '';
   movies: any;
@@ -42,11 +42,13 @@ export class MoviesComponent {
 
   ngOnInit(): void {
 
+
     this._id = this.route.snapshot.params['_id'];
 
     this.getMovie();
   }
   getMovie() {
+
     this.movieService.getMovies().subscribe((movies) => {
       this.movies = movies;
       let index = this.movies.findIndex(
@@ -57,18 +59,15 @@ export class MoviesComponent {
       }
     });
   }
-  // saveReview() {
-  //   var formValue = this.movieForm.value;
 
-  //   console.log(formValue.review);
-  //   this.movieService
-  //     .updateReview(this.movie._id || '', formValue.review)
-  //     .subscribe((res) => (this.movie = res));
-  // }
   saveReview() {
+    this.names2 = localStorage.getItem('username');
+    console.log(this.names2);
+    console.log("hi");
+    console.log(this.names);
     const movieId = this.movie._id;
     const newReview = this.movieForm.value.review;
-    const userName = this.movieForm.value.name;
+    const userName = this.names2;
     const like = this.likings.value.like;
     const disLike = this.likings.value.disLike;
     // if (like) {

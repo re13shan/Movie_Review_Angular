@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoginVerifyService } from '../services/login-verify.service';
 import { Login, LoginResponce } from '../services/login';
+import { LoadService } from '../services/load.service';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -20,7 +21,7 @@ import { Login, LoginResponce } from '../services/login';
 export class LoginComponent {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor(private route: Router, private http: HttpClient, private loginService: LoginVerifyService) { }
+  constructor(private route: Router, private http: HttpClient, private loginService: LoginVerifyService, private load: LoadService) { }
   formbuild = inject(FormBuilder);
 
   loginForm: FormGroup = this.formbuild.group({
@@ -38,6 +39,8 @@ export class LoginComponent {
       this.loginResponce = res;
       localStorage.setItem("token", this.loginResponce.token ?? '');
       if (this.loginResponce.success) {
+        console.log(this.loginResponce);
+        localStorage.setItem('username', this.loginResponce.name ?? '');
         this.route.navigateByUrl("/home");
       }
       else {

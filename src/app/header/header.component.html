@@ -1,7 +1,10 @@
 <div class="header-container">
     <div class="logo" (click)="goToHome()">Totten Romato</div>
+    <h1><b>Welcome {{names1}}</b></h1>
+    <!-- <br>
+    <h1><b>Welcome2 {{names2}}</b></h1> -->
     <div class="logout">
-        <a mat-raised-button mat-button color="primary" style="margin-right:50px" routerLink="">Logout</a>
+        <a mat-raised-button mat-button color="primary" style="margin-right:50px" (click)="logout()">Logout</a>
     </div>
 
 </div>

@@ -99,11 +99,16 @@
 
 
 .movie-item {
+    width: 500px;
+    /* Set the width of the box */
+    height: 300px;
+    /* Set the height of the box */
     left: 20px;
     background-color: #f2f2f2;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: content-box;
 }
 
 .movie-card {

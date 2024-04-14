@@ -18,18 +18,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router, private movieService: LoadService) { }
 
-  // ngOnInit(): void {
 
-  //   this.getPopularMovies();
-  // }
-
-  // getPopularMovies() {
-  //   this.http
-  //     .get('http://localhost:4200/assets/data/popular-movies.json')
-  //     .subscribe((movies) => {
-  //       this.popularMovies = movies;
-  //     });
-  // }
 
   goToMovie(_id: string) {
     this.router.navigate(['movies', _id]);
